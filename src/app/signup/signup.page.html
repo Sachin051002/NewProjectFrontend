@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">signup</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content> -->
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="signup()">
+    <ion-item>
+      <ion-label position="floating">First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="firstName" name="firstName" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="lastName" name="lastName" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label position="floating">Image URL</ion-label>
+      <ion-input type="text" [(ngModel)]="image" name="image"></ion-input>
+    </ion-item> -->
+
+    <!-- <ion-item> -->
+      <ion-label position="floating"></ion-label>
+      <input type="file" (change)="handleFileInput($event)" accept="image/*">
+    <!-- </ion-item> -->
+
+    <ion-button expand="block" type="submit">Signup</ion-button>
+  </form>
+</ion-content>

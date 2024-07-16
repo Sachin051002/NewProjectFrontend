@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>userProfile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">userProfile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content> -->
+
+
+<!-- <ion-content>
+  <ion-card *ngIf="user">
+    <ion-card-header>
+      <ion-card-title>{{ user.firstName }} {{ user.lastName }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>First Name:</strong> {{ user.firstName }}</p>
+      <p><strong>Last Name:</strong> {{ user.lastName }}</p>
+      <p><strong>Profile Image:</strong></p>
+      <img [src]="user.filePath" *ngIf="user.filePath" alt="User Image">
+    </ion-card-content>
+  </ion-card>
+</ion-content> -->
+
+<ion-content>
+  <ion-card *ngIf="user">
+    <ion-card-header>
+      <ion-card-title>{{ user.firstName }} {{ user.lastName }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <form (ngSubmit)="updateUserProfile()" #profileForm="ngForm">
+        <ion-item>
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input type="text" name="firstName" [(ngModel)]="user.firstName" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input type="text" name="lastName" [(ngModel)]="user.lastName" required></ion-input>
+        </ion-item>
+        <ion-item *ngIf="user.imageUrl">
+          <img [src]="user.imageUrl" alt="User Image" style="max-width: 200px;">
+        </ion-item>
+        <ion-item>
+          <input type="file" (change)="onFileSelected($event)" accept="image/*">
+        </ion-item>
+        <ion-button type="submit" expand="block">Update Profile</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
