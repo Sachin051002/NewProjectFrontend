@@ -1,1 +1,1 @@
-# This is Ionic proejct, The development is in process.
+# This is Ionic project, The development is in process.
